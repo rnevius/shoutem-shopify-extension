@@ -1,7 +1,7 @@
 {
   "name": "shopify",
-  "title": "Shopify",
-  "version": "1.4.2",
+  "title": "Shopify (Fork)",
+  "version": "1.4.3",
   "platform": "1.4.*",
   "icon": "./server/assets/add-shopify-image.png",
   "description": "Sell from your Shopify store",
@@ -35,6 +35,12 @@
     }
   ],
   "screens": [
+    {
+      "name": "ProductsGridWithFeaturedImageScreen",
+      "title": "Featured Image Grid",
+      "image": "./server/assets/screens/grid.png",
+      "extends": "@.ProductsListScreen"
+    },
     {
       "name": "ProductsGridScreen",
       "title": "Grid",

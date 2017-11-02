@@ -3,6 +3,7 @@
 
 import CartScreen from './screens/CartScreen.js';
 import ProductsGridScreen from './screens/ProductsGridScreen.js';
+import ProductsGridWithFeaturedImageScreen from './screens/ProductsGridWithFeaturedImageScreen.js';
 import ProductsListScreen from './screens/ProductsListScreen.js';
 import SearchProductsScreen from './screens/SearchProductsScreen.js';
 import ProductDetailsScreen from './screens/ProductDetailsScreen.js';
@@ -18,6 +19,7 @@ import { actions, reducer } from './redux';
 export const screens = {
   CartScreen,
   ProductsGridScreen,
+  ProductsGridWithFeaturedImageScreen,
   ProductsListScreen,
   SearchProductsScreen,
   ProductDetailsScreen,
