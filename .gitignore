@@ -1,0 +1,31 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Yarn files
+yarn.lock
+
+# Webstorm files
+.idea
+## WebStorm RN build
+.tmp/
+
+# Build files
+build
+
+# Zip files
+*.zip
+
+# IDE files and folders
+.vscode
+jsconfig.json
+
+# MacOSX system file
+.DS_Store
