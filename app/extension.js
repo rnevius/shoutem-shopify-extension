@@ -3,6 +3,7 @@
 // You should not change it manually
 
 // screens imports
+import ProductsGridWithFeaturedImageScreen from './screens/ProductsGridWithFeaturedImageScreen';
 import ProductsGridScreen from './screens/ProductsGridScreen';
 import ProductsListScreen from './screens/ProductsListScreen';
 import ProductDetailsScreen from './screens/ProductDetailsScreen';
@@ -12,9 +13,9 @@ import CheckoutScreen from './screens/CheckoutScreen';
 import ShippingMethodScreen from './screens/ShippingMethodScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import OrderCompleteScreen from './screens/OrderCompleteScreen';
-import ProductsGridWithFeaturedImageScreen from './screens/ProductsGridWithFeaturedImageScreen';
 
 export const screens = {
+  ProductsGridWithFeaturedImageScreen,
   ProductsGridScreen,
   ProductsListScreen,
   ProductDetailsScreen,
@@ -23,6 +24,5 @@ export const screens = {
   CheckoutScreen,
   ShippingMethodScreen,
   PaymentScreen,
-  OrderCompleteScreen,
-  ProductsGridWithFeaturedImageScreen
+  OrderCompleteScreen
 };

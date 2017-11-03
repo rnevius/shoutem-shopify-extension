@@ -1,7 +1,7 @@
 {
   "name": "shopify",
   "title": "Shopify (Fork)",
-  "version": "1.4.3",
+  "version": "1.4.9",
   "platform": "1.4.*",
   "icon": "./server/assets/add-shopify-image.png",
   "description": "Sell from your Shopify store",
@@ -39,7 +39,13 @@
       "name": "ProductsGridWithFeaturedImageScreen",
       "title": "Featured Image Grid",
       "image": "./server/assets/screens/grid.png",
-      "extends": "@.ProductsListScreen"
+      "extends": "@.ProductsListScreen",
+      "settingsPage": {
+        "page": "@.ProductsGridWithFeaturedImageSettings"
+      },
+      "settings": {
+        "featuredImage": ""
+      }
     },
     {
       "name": "ProductsGridScreen",
@@ -81,6 +87,10 @@
     },
     {
       "name": "ShopifySettingsPage",
+      "type": "react-page"
+    },
+    {
+      "name": "ProductsGridWithFeaturedImageSettings",
       "type": "react-page"
     }
   ],

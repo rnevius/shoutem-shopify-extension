@@ -10,6 +10,10 @@ module.exports = {
   entry: {
     extension: './bin/main.js',
   },
+  // externals: {
+  //   "@shoutem/web-core": "'@shoutem/web-core'",
+  //   "environment": "'environment'"
+  // },
   output: {
     path: path.join(__dirname, '../../build'),
     filename: '[name].[hash].js',

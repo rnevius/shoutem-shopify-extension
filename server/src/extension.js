@@ -5,8 +5,10 @@
 // screens imports
 import ShopifyPage from './pages/shopify-page';
 import ShopifySettingsPage from './pages/shopify-settings-page';
+import ProductsGridWithFeaturedImageSettings from './pages/products-grid-with-featured-image-settings';
 
 export const pages = {
   ShopifyPage,
-  ShopifySettingsPage
+  ShopifySettingsPage,
+  ProductsGridWithFeaturedImageSettings
 };
