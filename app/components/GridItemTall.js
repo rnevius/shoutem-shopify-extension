@@ -47,7 +47,7 @@ const GridItemTall = ({ item, onAddToCart, onPress, shop }) => {
           <Subtitle numberOfLines={3}>{title.toLowerCase()}</Subtitle>
           <View styleName="horizontal v-center space-between">
             <Subtitle
-              styleName="md-gutter-right"
+              styleName="md-gutter-right bold"
             >
               {`${minimum_price} ${currency}`}
             </Subtitle>
