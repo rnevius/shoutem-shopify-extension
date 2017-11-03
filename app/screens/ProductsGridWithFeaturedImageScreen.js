@@ -10,7 +10,7 @@ import {
 
 import { ext } from '../const';
 
-import ProductsGrid from '../components/ProductsGrid';
+import ProductsGridWithFeaturedImage from '../components/ProductsGridWithFeaturedImage';
 
 /**
  * Allows users to browse through products arranged in a grid view.
@@ -31,7 +31,7 @@ class ProductsGridWithFeaturedImageScreen extends ProductsListScreen {
   /* eslint-disable class-methods-use-this */
   renderProducts(collectionId) {
     return (
-      <ProductsGrid collectionId={collectionId} />
+      <ProductsGridWithFeaturedImage collectionId={collectionId} />
     );
   }
 }
