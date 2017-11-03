@@ -24,6 +24,11 @@ const GridItemTall = ({ item, onAddToCart, onPress, shop }) => {
   const { images, minimum_price, minimum_compare_at_price, title } = item;
   const { currency = '' } = shop;
   const styles = {
+    gridItem: {
+      flex: 1, 
+      flexWrap: 'wrap', 
+      padding: 10
+    },
     productImage: {
       height: window.width * 0.75,
       width: window.width / 2
@@ -31,8 +36,8 @@ const GridItemTall = ({ item, onAddToCart, onPress, shop }) => {
   };
 
   return (
-    <TouchableOpacity onPress={onPress}>
-      <Tile styleName="flexible clear">
+    <TouchableOpacity onPress={onPress} style={styles.gridItem}>
+      <Tile styleName="clear">
         <Image
           source={{ uri: (images[0] || {}).src }}
           defaultSource={require('../assets/images/image-fallback.png')}

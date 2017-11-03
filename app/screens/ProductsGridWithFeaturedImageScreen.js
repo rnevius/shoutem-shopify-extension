@@ -30,8 +30,11 @@ class ProductsGridWithFeaturedImageScreen extends ProductsListScreen {
 
   /* eslint-disable class-methods-use-this */
   renderProducts(collectionId) {
+    let collections = this.props.visibleCollections;
+    let collectionIndex = collections.findIndex(collection => collection.id === collectionId);
+
     return (
-      <ProductsGridWithFeaturedImage collectionId={collectionId} />
+      <ProductsGridWithFeaturedImage showFeaturedImage={!collectionIndex} collectionId={collectionId} />
     );
   }
 }

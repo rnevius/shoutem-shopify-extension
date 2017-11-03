@@ -38,8 +38,8 @@ class ProductsGridWithFeaturedImage extends ProductsList {
   };
 
   renderProductRow(products, sectionId, index) {
-    if (index === '0') {
-      return this.renderFeaturedProduct();
+    if (index === '0' && this.props.showFeaturedImage) {
+      return this.renderFeaturedImage();
     }
 
     const gridProducts = _.map(products, product => this.renderGridProduct(product));
@@ -65,7 +65,7 @@ class ProductsGridWithFeaturedImage extends ProductsList {
     );
   }
 
-  renderFeaturedProduct() {
+  renderFeaturedImage() {
     return (
       <View>
         <Image
@@ -78,17 +78,8 @@ class ProductsGridWithFeaturedImage extends ProductsList {
   }
 
   renderProducts(products, isLoading) {
-    // Group the products into rows with 2 columns, except for the
-    // first one, which is treated as a featured product
-    let isFirstProduct = true;
-    const groupedProducts = GridRow.groupByRows(products, 2, () => {
-      if (isFirstProduct) {
-        isFirstProduct = false;
-        return 2;
-      }
-
-      return 1;
-    });
+    // Group the products into rows with 2 columns
+    const groupedProducts = GridRow.groupByRows(products, 2);
 
     return super.renderProducts(groupedProducts, isLoading);
   }

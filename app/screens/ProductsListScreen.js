@@ -39,7 +39,7 @@ const defaultCollection = { id: 0, title: 'All' };
 
 const spinnerStyle = { marginTop: 20 };
 
-const { func, number, shape, string } = React.PropTypes;
+const { array, func, number, shape, string } = React.PropTypes;
 
 /**
  * This is a base screen that allows users to browse through products and collections
@@ -65,6 +65,8 @@ export class ProductsListScreen extends Component {
     shortcut: shape({
       title: string,
     }),
+    // Collections which are selected in shortcut settings
+    visibleCollections: array,
   };
 
   constructor(props) {
@@ -200,6 +202,7 @@ export const mapStateToProps = (state, ownProps) => {
     cartSize: getCartSize(state),
     collection: _.find(collections, { 'id': collectionId }) || collections[0],
     shop: { ...shop, collections },
+    visibleCollections: collections,
     shortcut,
   };
 };
