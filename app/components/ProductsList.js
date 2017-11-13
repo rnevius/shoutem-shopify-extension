@@ -34,6 +34,13 @@ import {
   refreshProducts,
 } from '../redux/actionCreators';
 
+import {
+  find,
+  isBusy,
+  shouldRefresh,
+  getCollection
+} from '@shoutem/redux-io';
+
 import { getProducts } from '../redux/selectors';
 
 const { arrayOf, bool, func, number, shape, string } = React.PropTypes;
@@ -247,6 +254,7 @@ export const mapStateToProps = (state, ownProps) => {
 export const mapDispatchToProps = {
   cartItemAdded,
   closeModal,
+  find,
   navigateTo,
   openInModal,
   refreshProducts,

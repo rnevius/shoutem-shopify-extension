@@ -1,0 +1,20 @@
+{
+  "title": "Shopify",
+  "properties": {
+    "name": {
+      "format": "single-line",
+      "title": "Name",
+      "type": "string",
+      "displayPriority": 1
+    },
+    "featuredImage": {
+      "format": "attachment",
+      "title": "Featured Image",
+      "type": "object",
+      "referencedSchema": "shoutem.core.image-attachments",
+      "displayPriority": 2
+    }
+  },
+  "titleProperty": "name",
+  "type": "object"
+}

@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+import { storage, collection, find } from '@shoutem/redux-io';
+import { ext } from '../const';
 import _ from 'lodash';
 
 import {
@@ -211,5 +213,7 @@ export default combineReducers({
   selectedShippingMethod,
   shippingMethods,
   shop,
+  shopifyAttachments: storage(ext('Shopify')),
+  allShopifyAttachments: collection(ext('Shopify'), 'all'),
   tags: productsForKey('tag'),
 });

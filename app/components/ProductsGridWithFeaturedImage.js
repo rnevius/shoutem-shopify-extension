@@ -1,6 +1,12 @@
 import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
+import {
+  find,
+  isBusy,
+  shouldRefresh,
+  getCollection
+} from '@shoutem/redux-io';
 import { connectStyle } from '@shoutem/theme';
 import {
   Button,
@@ -20,9 +26,10 @@ import {
 
 import {
   ProductsList,
-  mapStateToProps,
   mapDispatchToProps,
 } from './ProductsList';
+
+import { getProducts } from '../redux/selectors';
 
 import GridItemTall from '../components/GridItemTall';
 import FeaturedItem from '../components/FeaturedItem';
@@ -36,6 +43,22 @@ class ProductsGridWithFeaturedImage extends ProductsList {
   static propTypes = {
     ...ProductsList.propTypes,
   };
+
+  componentDidMount() {
+    const { error } = this.props.shop;
+
+    if (error) {
+      return;
+    }
+
+    const { find, shopifyAttachments } = this.props;
+
+    find(ext('Shopify'), 'all', {
+        include: 'featuredImage',
+    })
+
+    super.refreshData();
+  }
 
   renderProductRow(products, sectionId, index) {
     if (index === '0' && this.props.showFeaturedImage) {
@@ -66,11 +89,14 @@ class ProductsGridWithFeaturedImage extends ProductsList {
   }
 
   renderFeaturedImage() {
+    let featuredImage = this.props.shopifyAttachments.slice(-1)[0],
+        featuredImageSrc = featuredImage.featuredImage.url;
+
     return (
       <View>
         <Image
           styleName="large-wide"
-          source={{uri: 'https://placehold.it/600x400?text=Featured%20Image'}}
+          source={{uri: featuredImageSrc || ''}}
           defaultSource={require('../assets/images/image-fallback.png')}
         ></Image>
       </View>
@@ -84,6 +110,22 @@ class ProductsGridWithFeaturedImage extends ProductsList {
     return super.renderProducts(groupedProducts, isLoading);
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  const { shop } = state[ext()];
+  const { collectionId, tag } = ownProps;
+
+  const productsState = getProducts(state, collectionId, tag);
+
+  const shopifyAttachments = getCollection(state[ext()].allShopifyAttachments, state);
+
+  return {
+    collectionId,
+    productsState,
+    shop,
+    shopifyAttachments,
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(
   connectStyle(ext('ProductsGridWithFeaturedImage'), {})(ProductsGridWithFeaturedImage),

@@ -1,7 +1,7 @@
 {
   "name": "shopify",
   "title": "Shopify (Fork)",
-  "version": "1.4.11",
+  "version": "1.4.16",
   "platform": "1.4.*",
   "icon": "./server/assets/add-shopify-image.png",
   "description": "Sell from your Shopify store",
@@ -30,6 +30,13 @@
         {
           "page": "shoutem.layouts.LayoutPage",
           "title": "Layout"
+        },
+        {
+          "page": "shoutem.cms.CmsPage",
+          "title": "Attachments",
+          "parameters": {
+            "schema": "@.Shopify"
+          }
         }
       ]
     }
@@ -88,6 +95,12 @@
     {
       "page": "@.ShopifySettingsPage",
       "title": "Settings"
+    }
+  ],
+  "dataSchemas": [
+    {
+      "name": "Shopify",
+      "path": "server/data-schemas/Shopify.json"
     }
   ]
 }
