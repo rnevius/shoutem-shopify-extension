@@ -76,7 +76,10 @@ class ShopifyPage extends Component {
   }
 
   renderShopifyCollections() {
-    const { collections, selectedCollections } = this.props;
+    let { collections } = this.props;
+    const { selectedCollections } = this.props;
+
+    collections = _.orderBy(collections, ['title']);
 
     return (
       <div>
