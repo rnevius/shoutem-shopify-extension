@@ -1,7 +1,7 @@
 {
   "name": "shopify",
   "title": "Shopify (Fork)",
-  "version": "1.4.16",
+  "version": "1.4.17",
   "platform": "1.4.*",
   "icon": "./server/assets/add-shopify-image.png",
   "description": "Sell from your Shopify store",

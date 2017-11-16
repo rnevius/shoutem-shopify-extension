@@ -68,6 +68,19 @@ const loadCountries = () => _.sortBy(_.map(countryData, ({ name: { common: name 
 const emptyOption = { name: 'Select', cca2: '' };
 const countries = [emptyOption, ...loadCountries()];
 
+// Move element in array from one index to another
+Array.prototype.move = function(from, to) {
+    return this.splice(to, 0, this.splice(from, 1)[0]);
+};
+
+// Reorder Countries in checkout
+['US', 'CA'].map((country, i) => {
+  const countryIndex = countries.findIndex((c) => c.cca2 === country);
+
+  // Move country after placeholder option
+  countries.move(countryIndex, 1 + i);
+});
+
 /**
  * Lets the user enter his email and address when performing a checkout with selected
  * cart items. If the information he enters is valid, the component forwards him to the
