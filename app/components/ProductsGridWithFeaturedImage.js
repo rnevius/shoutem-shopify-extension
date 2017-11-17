@@ -90,13 +90,13 @@ class ProductsGridWithFeaturedImage extends ProductsList {
 
   renderFeaturedImage() {
     let featuredImage = this.props.shopifyAttachments.slice(-1)[0],
-        featuredImageSrc = featuredImage.featuredImage.url;
+        featuredImageSrc = featuredImage.featuredImage.url || '';
 
     return (
       <View>
         <Image
           styleName="large-wide"
-          source={{uri: featuredImageSrc || ''}}
+          source={{uri: featuredImageSrc}}
           defaultSource={require('../assets/images/image-fallback.png')}
         ></Image>
       </View>
